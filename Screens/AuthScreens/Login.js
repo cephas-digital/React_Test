@@ -1,4 +1,4 @@
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { COLORS, FONTS, icons, SIZES } from '../../Constants';
 import Input from '../../components/Input';
@@ -16,15 +16,16 @@ export default function Login() {
         <Text style={{ ...styles.basket, ...FONTS.h1 }}>basket</Text>
       </View>
 
+       {/* Header */}
       <View style={styles.login}>
-
         <Text style={{ ...FONTS.body1, color: COLORS.black }}>Log into your Account</Text>
         <Text style={{ ...FONTS.h3, ...styles.text1  }}>
           Enter your email and password to access your account or create an account</Text>
       </View>
 
+     {/* Inputs */}
       <View style = {styles.inputView}>
-        <Input placeholder={'Email'} source={icons.Bell}/>
+        <Input placeholder={'Email'} source={icons.logo}/>
         <Input placeholder={'Password'} />
 
       </View>
@@ -39,22 +40,32 @@ export default function Login() {
 
 
         <View style={styles.forgotPassword}>
-          <Text style={styles.pass}>Forgot Password?</Text>
+        <TouchableOpacity>
+        <Text style={styles.pass}>Forgot Password?</Text>
+        </TouchableOpacity>
           <Text style={styles.cont}>Or Contine with --</Text>
         </View>
 
         <View style={styles.social}>
-         <View>
-          <FormButton labelText='Facebook' isPrimary={false}/>
+         <View style={{paddingHorizontal: 10}}>
+          <FormButton labelText='Facebook' isPrimary={false} style={{paddingHorizontal: SIZES.padding*1.8}}/>
          </View>
 
-         <View>
-         <FormButton labelText='Google' isPrimary={false}/>
+         <View style={{paddingHorizontal: 10}}>
+         <FormButton labelText='Google' isPrimary={false} style={{paddingHorizontal: SIZES.padding*1.8}}/>
+         </View>
+         </View>
+
+         <View style={styles.acctView}>
+          <Text style={styles.acct}>Don't have an account? </Text>
+          <TouchableOpacity>
+          <Text style={styles.signUp}>Sign Up </Text>
+          </TouchableOpacity>
 
          </View>
 
            
-        </View>
+       
       </View>
     </View>
   );
@@ -96,6 +107,8 @@ const styles = StyleSheet.create({
   },
   inputView: {
     marginHorizontal: SIZES.base,
+    
+    
   },
   forgotPassword: {
     alignItems: 'center',
@@ -103,7 +116,8 @@ const styles = StyleSheet.create({
   },
   pass: {
     color: 'red',
-    ...FONTS.h3
+    ...FONTS.h3,
+    textDecorationLine: 'underline'
   },
   cont: {
     marginTop: SIZES.padding*1.2,
@@ -112,6 +126,25 @@ const styles = StyleSheet.create({
   social: {
     flexDirection: 'row',
     width: '90%',
+    justifyContent: 'space-between',
+    marginVertical: SIZES.padding
+  },
+  acctView: {
+    flexDirection: 'row',
+    marginVertical: SIZES.padding,
     justifyContent: 'space-between'
+  },
+  acct: {
+    color: COLORS.gray,
+    ...FONTS.h3,
+    paddingLeft: SIZES.padding,
+    textAlign: 'center'
+  },
+  signUp: {
+    color: COLORS.primary,
+    ...FONTS.h3,
+    paddingRight: SIZES.padding*2,
+    textAlign: 'center'
+
   }
 })
