@@ -21,7 +21,7 @@ import {
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import BottomTabs from './Navigation/BottomTabs';
-import LoginStack from './Screens/LoginScreens/LoginStack';
+import LoginStack from './Screens/AuthScreens/LoginStack'
 
 const {width, height} = Dimensions.get('window');
 
@@ -45,7 +45,7 @@ const App: () => Node = () => {
         height,
       }}>
       <NavigationContainer>
-        {/* <Stack.Navigator initialRouteName="LoginStack">
+         <Stack.Navigator initialRouteName="LoginStack">
           <Stack.Screen
             name="Home"
             component={BottomTabs}
@@ -57,16 +57,16 @@ const App: () => Node = () => {
           />
           <Stack.Screen
             name="LoginStack"
-            component={AuthStack}
+            component={LoginStack}
             options={{
               title: null,
               headerShown: false,
               headerStyle: {},
             }}
           />
-        </Stack.Navigator> */}
+        </Stack.Navigator> 
 
-        <BottomTabs />
+        {/* <BottomTabs /> */}
       </NavigationContainer>
     </View>
   );
