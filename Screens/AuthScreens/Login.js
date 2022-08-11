@@ -1,7 +1,7 @@
 import { View, Text, Image, StyleSheet } from 'react-native';
 import React from 'react';
 import { COLORS, FONTS, icons, SIZES } from '../../Constants';
-import Input from '../../components/Input';
+// import Input from '../../components/Input';
 
 export default function Login() {
   return (

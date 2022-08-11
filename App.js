@@ -47,7 +47,6 @@ const App: () => Node = () => {
         height,
       }}>
       <NavigationContainer>
-<<<<<<< HEAD
         {/* <Stack.Navigator initialRouteName="LoginStack">
 =======
          {/* <Stack.Navigator initialRouteName="LoginStack">
@@ -70,19 +69,16 @@ const App: () => Node = () => {
               headerStyle: {},
             }}
           />
-<<<<<<< HEAD
+
         </Stack.Navigator> */}
 
         {/* <LoginStack /> */}
 
         {/* <IntroSlider /> */}
 
-        <BottomTabs /> 
-=======
-        </Stack.Navigator>  */}
+        {/* </Stack.Navigator>   */}
 
         <BottomTabs />
->>>>>>> e9b96f02cd000976954a5bb7c5a1cfa02ed269b5
       </NavigationContainer>
     </View>
   );
