@@ -8,20 +8,43 @@ export default function AccountHome() {
     {
       id: '0',
       name: 'Notifications',
-      // icon: 'location',
+      icon: 'Bell',
       // onPress: () => navigation.navigate(''),
     },
     {
       id: '1',
       name: 'Edit Profile',
-      // icon: 'contact',
-      // onPress: () => navigation.navigate(''),
+      icon: 'editprofile',
     },
     {
       id: '2',
       name: 'Wishlist',
-      // icon: 'lock',
-      // onPress: () => navigation.navigate(''),
+      icon: 'wishlist',
+    },
+    {
+      id: '3',
+      name: 'Order history',
+      icon: 'wishlist',
+    },
+    {
+      id: '4',
+      name: 'Track Order',
+      icon: 'wishlist',
+    },
+    {
+      id: '5',
+      name: 'Payment options',
+      icon: 'wishlist',
+    },
+    {
+      id: '6',
+      name: 'Settings',
+      icon: 'wishlist',
+    },
+    {
+      id: '7',
+      name: 'Logout',
+      icon: 'wishlist',
     },
   ]);
 
@@ -116,30 +139,34 @@ export default function AccountHome() {
         style={{
           backgroundColor: '#FFFFFF',
           width: '90%',
-          height: '68%',
+          height: '72%',
           justifyContent: 'center',
           alignItems: 'center',
           alignSelf: 'center',
           bottom: SIZES.radius * 5,
           borderRadius: 10,
         }}>
-        <View style={{}}>
+        <View style={{marginTop: SIZES.base * 4}}>
           <FlatList
             data={Account}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({item}) => (
-              <View style={{}}>
-                <TouchableOpacity style={{}}>
-                  {/* <Image
-                  source={icons[item.icon]}
-                  style={{width: 25, height: 25}}
-                /> */}
+              <View style={{marginTop: SIZES.base * 2}}>
+                <TouchableOpacity
+                  style={{
+                    flexDirection: 'row',
+                    // justifyContent: 'space-around',
+                  }}>
+                  <Image
+                    source={icons[item.icon]}
+                    style={{width: 25, height: 25}}
+                  />
 
                   <Text
                     style={{
                       ...FONTS.h4,
-                      color: 'red',
-                      fontWeight: '800',
+                      color: 'black',
+                      fontWeight: '700',
                     }}>
                     {item.name}
                   </Text>
