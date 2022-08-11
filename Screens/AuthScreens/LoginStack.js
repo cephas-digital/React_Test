@@ -14,6 +14,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 // Screens
 
 import Login from '../AuthScreens/Login'
+import AccountHome from '../AccountScreen/AccountHome';
 // import SignUp from './././SignUp';
 // import IntroSlider from '../LoginScreens/IntroSlider';
 // import Introduction from '../LoginScreens/Introduction';
@@ -48,6 +49,11 @@ function LoginStack() {
         <Stack.Screen
           name="Login"
           component={Login}
+          options={{headerShown: false, headerTitle: 'Log in'}}
+        />
+        <Stack.Screen
+          name="AccountHome"
+          component={AccountHome}
           options={{headerShown: false, headerTitle: 'Log in'}}
         />
         {/* <Stack.Screen

@@ -1,13 +1,14 @@
-import { View, Text, StyleSheet, TextInput } from 'react-native'
+import { View, Text, StyleSheet, TextInput, Image } from 'react-native'
 import React, { useState } from 'react';
-import { COLORS, icons } from '../Constants';
-import { Icon } from '@rneui/themed';
+import { COLORS, FONTS, icons, SIZES } from '../Constants';
+
 
 export default function Input({
     label,
-    iconName,
+    source,
     error,
     password,
+    placeholder,
     onFocus = () => { },
     ...props
 }) {
@@ -29,10 +30,10 @@ export default function Input({
                         alignItems: 'center',
                     },
                 ]}>
-                {/* <Icon
-                    name={iconName}
-                    style={{ color: COLORS, fontSize: 22, marginRight: 10 }}
-                /> */}
+                <Image
+                    Source={source}
+                    style={{ color: COLORS.primary, marginRight: 10 }}
+                /> 
                 <TextInput
                     autoCorrect={false}
                     onFocus={() => {
@@ -41,16 +42,20 @@ export default function Input({
                     }}
                     onBlur={() => setIsFocused(false)}
                     secureTextEntry={hidePassword}
-                    style={{ color: COLORS.darkBlue, flex: 1 }}
+                    style={{ color: COLORS.darkBlue, flex: 1,fontSize: 20 }}
                     {...props}
+                    placeholder={placeholder}
+                    placeholderTextColor={COLORS.gray}
+                    
                 />
-                {/* {password && (
-                   <Icon
+                {password && (
+                   <Image
+                   
                         onPress={() => setHidePassword(!hidePassword)}
-                        name={hidePassword ? icons.Bell : icons.logo}
-                        style={{ color: COLORS.darkBlue, fontSize: 22 }}
+                        source={hidePassword? icons.Bell: icons.logo}
+                        style={{ color: COLORS.primary}}
                     />
-                )} */}
+                )}
             </View>
             {error && (
                 <Text style={{ marginTop: 7, color: COLORS.red, fontSize: 12 }}>
@@ -63,15 +68,18 @@ export default function Input({
 
 const style = StyleSheet.create({
     label: {
-        marginVertical: 5,
+        // marginVertical: 5,
         fontSize: 14,
         color: COLORS.grey,
     },
     inputContainer: {
-        height: 55,
+        height: 50,
         backgroundColor: COLORS.white,
         flexDirection: 'row',
-        paddingHorizontal: 15,
-        borderWidth: 0.5,
+        borderBottomWidth: 1,
+        borderBottomColor: COLORS.primary,
+        fontSize: FONTS.h1,
+    
+        
     },
 })
