@@ -45,7 +45,7 @@ const App: () => Node = () => {
         height,
       }}>
       <NavigationContainer>
-         <Stack.Navigator initialRouteName="LoginStack">
+         {/* <Stack.Navigator initialRouteName="LoginStack">
           <Stack.Screen
             name="Home"
             component={BottomTabs}
@@ -64,9 +64,9 @@ const App: () => Node = () => {
               headerStyle: {},
             }}
           />
-        </Stack.Navigator> 
+        </Stack.Navigator>  */}
 
-        {/* <BottomTabs /> */}
+        <BottomTabs />
       </NavigationContainer>
     </View>
   );
