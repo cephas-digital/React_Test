@@ -39,55 +39,55 @@ export const SIZES = {
 };
 
 export const FONTS = {
-  navTitle: {fontFamily: 'Rasa-Bold', fontSize: SIZES.navTitle},
-  largeTitleBold: {fontFamily: 'Rasa-Semibold', fontSize: SIZES.h2},
+  navTitle: {fontFamily: 'rasa', fontSize: SIZES.navTitle},
+  largeTitleBold: {fontFamily: 'rasa', fontSize: SIZES.h2},
   h1: {
-    fontFamily: 'Rasa-Bold',
+    fontFamily: 'rasa',
     fontSize: SIZES.h1,
     lineHeight: screenHeight * 0.045,
   },
   h2: {
-    fontFamily: 'Rasa-Semibold',
+    fontFamily: 'rasa',
     fontSize: SIZES.h2,
     lineHeight: screenHeight * 0.0375,
   },
   h3: {
-    fontFamily: 'Rasa-Semibold',
+    fontFamily: 'rasa',
     fontSize: SIZES.h3,
     lineHeight: screenHeight * 0.025,
   },
   h4: {
-    fontFamily: 'Rasa-Semibold',
+    fontFamily: 'rasa',
     fontSize: SIZES.h4,
     lineHeight: screenHeight * 0.025,
   },
   h5: {
-    fontFamily: 'Rasa-Semibold',
+    fontFamily: 'rasa',
     fontSize: SIZES.h5,
     lineHeight: screenHeight * 0.025,
   },
   body1: {
-    fontFamily: 'Rasa-Regular',
+    fontFamily: 'rasa',
     fontSize: SIZES.body1,
     lineHeight: 36,
   },
   body2: {
-    fontFamily: 'Rasa-Regular',
+    fontFamily: 'rasa',
     fontSize: SIZES.body2,
     lineHeight: 30,
   },
   body3: {
-    fontFamily: 'Rasa-Regular',
+    fontFamily: 'rasa',
     fontSize: SIZES.body3,
     lineHeight: 22,
   },
   body4: {
-    fontFamily: 'Rasa-Regular',
+    fontFamily: 'rasa',
     fontSize: SIZES.body4,
     lineHeight: 22,
   },
   body5: {
-    fontFamily: 'Rasa-Regular',
+    fontFamily: 'rasa',
     fontSize: SIZES.body5,
     lineHeight: 22,
   },

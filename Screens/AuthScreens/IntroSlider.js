@@ -118,6 +118,7 @@ const styles = StyleSheet.create({
     fontSize: SIZES.base * 4,
     fontWeight: 'bold',
     marginTop: 20,
-    ...FONTS.body1,
+    // ...FONTS.body1,
+    fontFamily: 'rasa',
   },
 });
