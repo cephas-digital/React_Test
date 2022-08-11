@@ -7,12 +7,12 @@ import AccountHome from '../AccountScreen/AccountHome';
 const Stack = createStackNavigator();
 
 export default function AccountStack() {
-  return (
-    <Stack.Navigator
+  return ( 
+    <Stack.Navigator 
       screenOptions={{
         headerShown: false,
       }}>
-      <Stack.Screen name="Account" component={AccountHome} />
+      <Stack.Screen name="AccountScreen" component={AccountHome} />
     </Stack.Navigator>
   );
 }
