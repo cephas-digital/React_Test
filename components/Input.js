@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, TextInput, Image } from 'react-native'
 import React, { useState } from 'react';
-import { COLORS, FONTS, icons } from '../Constants';
+import { COLORS, FONTS, icons, SIZES } from '../Constants';
 
 
 export default function Input({
@@ -76,10 +76,10 @@ const style = StyleSheet.create({
         height: 50,
         backgroundColor: COLORS.white,
         flexDirection: 'row',
-        // paddingHorizontal: 7,
-        borderBottomWidth: 1.6,
+        borderBottomWidth: 1,
         borderBottomColor: COLORS.primary,
-        fontSize: FONTS.h1
+        fontSize: FONTS.h1,
+    
         
     },
 })
