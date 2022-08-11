@@ -4,7 +4,7 @@ import { COLORS, FONTS, icons, SIZES } from '../../Constants';
 import Input from '../../components/Input';
 import FormButton from '../../components/FormButton';
 
-export default function Login() {
+export default function Login({navigation}) {
   return (
     <View style={styles.container}>
     <View style={styles.header1}>
@@ -25,8 +25,14 @@ export default function Login() {
 
      {/* Inputs */}
       <View style = {styles.inputView}>
+        <View>
         <Input placeholder={'Email'} source={icons.logo}/>
+        </View>
+
+        <View style={styles.password}>
         <Input placeholder={'Password'} />
+   
+        </View>
 
       </View>
 
@@ -35,7 +41,7 @@ export default function Login() {
       </View>
         
         <View style={{marginVertical: SIZES.padding, marginHorizontal: SIZES.base*3}}>
-          <FormButton labelText='Login'/>
+          <FormButton labelText='Login' handleOnPress={()=>{navigation.navigate('AccountHome')}}/>
         </View>
 
 
@@ -146,5 +152,9 @@ const styles = StyleSheet.create({
     paddingRight: SIZES.padding*2,
     textAlign: 'center'
 
+  },
+
+  password:{
+    marginTop: -15
   }
 })
