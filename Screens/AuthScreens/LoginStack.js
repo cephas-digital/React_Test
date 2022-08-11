@@ -12,6 +12,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import AccountHome from '../AccountScreen/AccountHome';
+import BottomTabs from '../../Navigation/BottomTabs';
 
 import IntroSlider from './IntroSlider';
 import Introduction from './Introduction';
@@ -46,8 +47,8 @@ function LoginStack() {
           options={{headerShown: false, headerTitle: 'Log in'}}
         />
         <Stack.Screen
-          name="AccountHome"
-          component={AccountHome}
+          name="BottomTabs"
+          component={BottomTabs}
           options={{headerShown: false, headerTitle: 'Log in'}}
         />
 

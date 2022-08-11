@@ -48,7 +48,7 @@ export default function Login({navigation}) {
           <FormButton
             labelText="Login"
             handleOnPress={() => {
-              navigation.navigate('AccountHome');
+              navigation.navigate('BottomTabs');
             }}
           />
         </View>
