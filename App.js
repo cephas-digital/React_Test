@@ -21,7 +21,7 @@ import {
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import BottomTabs from './Navigation/BottomTabs';
-import LoginStack from './Screens/LoginScreens/LoginStack';
+// import LoginStack from './Screens/LoginScreens/LoginStack';
 
 const {width, height} = Dimensions.get('window');
 
