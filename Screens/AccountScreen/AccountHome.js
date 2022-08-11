@@ -1,11 +1,32 @@
-import {View, Text, TouchableOpacity} from 'react-native';
-import React from 'react';
+import {View, Text, TouchableOpacity, Image, FlatList} from 'react-native';
+import React, {useState} from 'react';
 import {TextInput} from 'react-native-gesture-handler';
-import {SIZES, COLORS, FONTS} from '../../Constants';
+import {SIZES, COLORS, FONTS, icons, images} from '../../Constants';
 
 export default function AccountHome() {
+  const [Account, setAccount] = useState([
+    {
+      id: '0',
+      name: 'Notifications',
+      // icon: 'location',
+      // onPress: () => navigation.navigate(''),
+    },
+    {
+      id: '1',
+      name: 'Edit Profile',
+      // icon: 'contact',
+      // onPress: () => navigation.navigate(''),
+    },
+    {
+      id: '2',
+      name: 'Wishlist',
+      // icon: 'lock',
+      // onPress: () => navigation.navigate(''),
+    },
+  ]);
+
   return (
-    <View>
+    <View style={{flex: 1}}>
       <View
         style={{
           backgroundColor: '#112D42',
@@ -23,10 +44,11 @@ export default function AccountHome() {
               backgroundColor: '#FF8137',
               width: 40,
               height: 40,
-              borderRadius: 20,
+              borderRadius: SIZES.base * 5,
               justifyContent: 'center',
             }}>
-            <Text style={{color: 'white', fontSize: 20, marginLeft: 10}}>
+            <Text
+              style={{color: 'white', fontSize: 20, marginLeft: SIZES.base}}>
               Ba
             </Text>
           </TouchableOpacity>
@@ -36,8 +58,8 @@ export default function AccountHome() {
             style={{
               backgroundColor: '#FFf',
               width: '60%',
-              height: 40,
-              borderRadius: 10,
+              height: SIZES.base * 4.1,
+              borderRadius: SIZES.base * 1.5,
               color: 'black',
             }}
           />
@@ -46,7 +68,7 @@ export default function AccountHome() {
               backgroundColor: '#FF8137',
               width: 40,
               height: 40,
-              borderRadius: 20,
+              borderRadius: SIZES.base * 5,
               justifyContent: 'center',
             }}>
             <Text style={{color: 'white', fontSize: 20, marginLeft: 8}}>
@@ -62,21 +84,16 @@ export default function AccountHome() {
           height: '25%',
           justifyContent: 'center',
         }}>
-        <View style={{flexDirection: 'row', marginHorizontal: 15}}>
+        <View style={{flexDirection: 'row', marginHorizontal: SIZES.radius}}>
           <TouchableOpacity
             style={{
-              backgroundColor: '#112D42',
-              marginTop: 20,
-              width: 90,
+              marginTop: SIZES.base * 2,
               height: 90,
               borderRadius: 45,
-              justifyContent: 'center',
               alignItems: 'center',
-              borderWidth: 2,
-              borderColor: '#FFF',
-              bottom: 20,
+              bottom: SIZES.base * 2.2,
             }}>
-            <Text style={{color: 'white'}}>Profile</Text>
+            <Image source={icons.profile} />
           </TouchableOpacity>
           <View style={{marginLeft: 20, justifyContent: 'center', bottom: 20}}>
             <Text
@@ -84,11 +101,12 @@ export default function AccountHome() {
                 color: 'black',
                 fontSize: 25,
                 fontWeight: '500',
-                ...FONTS.h1,
+                ...FONTS.body1,
               }}>
               Daniel Obi
             </Text>
-            <Text style={{color: 'black', fontSize: 15, fontWeight: '500'}}>
+            <Text
+              style={{color: 'black', fontSize: SIZES.h3, fontWeight: '500'}}>
               danielobi@gmail.com
             </Text>
           </View>
@@ -102,9 +120,35 @@ export default function AccountHome() {
           justifyContent: 'center',
           alignItems: 'center',
           alignSelf: 'center',
-          bottom: 50,
+          bottom: SIZES.radius * 5,
           borderRadius: 10,
-        }}></View>
+        }}>
+        <View style={{}}>
+          <FlatList
+            data={Account}
+            keyExtractor={(item, index) => index.toString()}
+            renderItem={({item}) => (
+              <View style={{}}>
+                <TouchableOpacity style={{}}>
+                  {/* <Image
+                  source={icons[item.icon]}
+                  style={{width: 25, height: 25}}
+                /> */}
+
+                  <Text
+                    style={{
+                      ...FONTS.h4,
+                      color: 'red',
+                      fontWeight: '800',
+                    }}>
+                    {item.name}
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            )}
+          />
+        </View>
+      </View>
     </View>
   );
 }
