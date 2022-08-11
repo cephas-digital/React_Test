@@ -16,6 +16,9 @@ export const accountIcon = require('./../assets/icons/accountIcon.png');
 export const cartIcon = require('./../assets/icons/cartIcon.png');
 export const bg1 = require('./../assets/icons/bg1.png');
 export const bg2 = require('./../assets/icons/bg2.png');
+export const basketLogo = require('./../assets/icons/basketLogo.png');
+export const familyLogo = require('./../assets/icons/familyLogo.png');
+export const bg3 = require('./../assets/icons/bg3.png');
 
 export default {
   logo,
@@ -36,4 +39,7 @@ export default {
   cartIcon,
   bg1,
   bg2,
+  basketLogo,
+  familyLogo,
+  bg3,
 };
