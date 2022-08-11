@@ -2,10 +2,12 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 import React from 'react';
 import { COLORS, FONTS, icons, SIZES } from '../../Constants';
 import Input from '../../components/Input';
+import FormButton from '../../components/FormButton';
 
 export default function Login() {
   return (
     <View style={styles.container}>
+    <View style={styles.header1}>
       <View style={styles.header}>
         <Image
           source={icons.logo}
@@ -21,11 +23,39 @@ export default function Login() {
           Enter your email and password to access your account or create an account</Text>
       </View>
 
-      <View>
-        <Input/>
+      <View style = {styles.inputView}>
+        <Input placeholder={'Email'} source={icons.Bell}/>
+        <Input placeholder={'Password'} />
+
       </View>
 
+      <View style={{marginHorizontal: SIZES.base}}>
+        <Text style={{...FONTS.h3, textAlign: 'left', }}>Remember me</Text>
+      </View>
+        
+        <View style={{marginVertical: SIZES.padding, marginHorizontal: SIZES.base*3}}>
+          <FormButton labelText='Login'/>
+        </View>
 
+
+        <View style={styles.forgotPassword}>
+          <Text style={styles.pass}>Forgot Password?</Text>
+          <Text style={styles.cont}>Or Contine with --</Text>
+        </View>
+
+        <View style={styles.social}>
+         <View>
+          <FormButton labelText='Facebook' isPrimary={false}/>
+         </View>
+
+         <View>
+         <FormButton labelText='Google' isPrimary={false}/>
+
+         </View>
+
+           
+        </View>
+      </View>
     </View>
   );
 }
@@ -33,7 +63,11 @@ export default function Login() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: COLORS.white
+    backgroundColor: COLORS.white,
+
+  },
+  header1:{
+   marginHorizontal: SIZES.base
   },
   header: {
     marginHorizontal: SIZES.base,
@@ -59,5 +93,25 @@ const styles = StyleSheet.create({
     color: COLORS.gray, 
     marginTop: SIZES.base, 
     textAlign: 'center'
+  },
+  inputView: {
+    marginHorizontal: SIZES.base,
+  },
+  forgotPassword: {
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  pass: {
+    color: 'red',
+    ...FONTS.h3
+  },
+  cont: {
+    marginTop: SIZES.padding*1.2,
+    ...FONTS.h4
+  },
+  social: {
+    flexDirection: 'row',
+    width: '90%',
+    justifyContent: 'space-between'
   }
 })
