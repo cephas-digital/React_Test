@@ -19,10 +19,9 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import {NavigationContainer} from '@react-navigation/native';
-// import MainContainer from './navigation/MainContainer';
-// import {createStackNavigator} from '@react-navigation/stack';
-// import LoginStack from './navigation/LoginScreens/LoginStack';
+import {createStackNavigator} from '@react-navigation/stack';
 import BottomTabs from './Navigation/BottomTabs';
+import LoginStack from './Screens/LoginScreens/LoginStack';
 
 const {width, height} = Dimensions.get('window');
 
@@ -30,7 +29,7 @@ const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
 };
 
-// const Stack = createStackNavigator();
+const Stack = createStackNavigator();
 
 const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -49,7 +48,7 @@ const App: () => Node = () => {
         {/* <Stack.Navigator initialRouteName="LoginStack">
           <Stack.Screen
             name="Home"
-            component={MainContainer}
+            component={BottomTabs}
             options={{
               title: null,
               headerShown: false,
@@ -58,7 +57,7 @@ const App: () => Node = () => {
           />
           <Stack.Screen
             name="LoginStack"
-            component={LoginStack}
+            component={AuthStack}
             options={{
               title: null,
               headerShown: false,

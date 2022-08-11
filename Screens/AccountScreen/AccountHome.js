@@ -9,14 +9,14 @@ export default function AccountHome() {
       <View
         style={{
           backgroundColor: '#112D42',
-          height: 90,
+          height: '12%',
           width: '100%',
         }}>
         <View
           style={{
             flexDirection: 'row',
             justifyContent: 'space-around',
-            marginTop: 20,
+            marginTop: SIZES.base * 2,
           }}>
           <TouchableOpacity
             style={{
