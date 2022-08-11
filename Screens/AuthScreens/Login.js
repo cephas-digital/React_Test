@@ -41,7 +41,7 @@ export default function Login({navigation}) {
       </View>
         
         <View style={{marginVertical: SIZES.padding, marginHorizontal: SIZES.base*3}}>
-          <FormButton labelText='Login' handleOnPress={()=>{navigation.navigate('AccountHome')}}/>
+          <FormButton labelText='Login' handleOnPress={()=>{navigation.navigate('BottomTabs')}}/>
         </View>
 
 

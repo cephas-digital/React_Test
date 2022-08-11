@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 
 import AppIntroSlider from 'react-native-app-intro-slider';
-import Introduction from '../../navigation/LoginScreens/Introduction';
+import Introduction from './Introduction';
 
 const App = ({navigation}) => {
   const [showRealApp, setShowRealApp] = useState(false);
@@ -35,7 +35,7 @@ const App = ({navigation}) => {
             width: 120,
             height: 120,
           }}
-          source={require('../../navigation/assets/rubieslogo.png')}
+          // source={require('../../assets/icons/')}
         />
         <Text
           style={{
