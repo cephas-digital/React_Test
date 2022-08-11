@@ -47,10 +47,9 @@ const App: () => Node = () => {
         height,
       }}>
       <NavigationContainer>
-        {/* <Stack.Navigator initialRouteName="LoginStack">
-=======
-         {/* <Stack.Navigator initialRouteName="LoginStack">
->>>>>>> e9b96f02cd000976954a5bb7c5a1cfa02ed269b5
+         {/* <Stack.Navigator initialRouteName="LoginStack"> */}
+
+          <Stack.Navigator initialRouteName="LoginStack">
           <Stack.Screen
             name="Home"
             component={BottomTabs}
@@ -70,7 +69,7 @@ const App: () => Node = () => {
             }}
           />
 
-        </Stack.Navigator> */}
+        </Stack.Navigator> 
 
         {/* <LoginStack /> */}
 
@@ -78,7 +77,7 @@ const App: () => Node = () => {
 
         {/* </Stack.Navigator>   */}
 
-        <BottomTabs />
+        {/* <BottomTabs /> */}
       </NavigationContainer>
     </View>
   );

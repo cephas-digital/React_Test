@@ -12,7 +12,7 @@ import {
 
 import AppIntroSlider from 'react-native-app-intro-slider';
 import {SIZES, COLORS, FONTS, icons, images} from '../../Constants';
-// import Introduction from './Introduction';
+import Introduction from './Introduction';
 
 const App = ({navigation}) => {
   const [showRealApp, setShowRealApp] = useState(false);
