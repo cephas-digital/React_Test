@@ -1,4 +1,4 @@
-import {View, Text, Dimensions} from 'react-native';
+import {View, Text, Dimensions, Image} from 'react-native';
 import * as React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeStack from '../Screens/HomeScreen/HomeStack';
@@ -6,6 +6,7 @@ import HomeStack from '../Screens/HomeScreen/HomeStack';
 import SavedStack from '../Screens/SavedScreen/SavedStack';
 import AccountStack from '../Screens/AccountScreen/AccountStack';
 import CartStack from '../Screens/CartScreen/CartStack';
+import {SIZES, COLORS, FONTS, icons, images} from '.././Constants';
 
 const {width, height} = Dimensions.get('window');
 
@@ -24,7 +25,7 @@ export default function BottomTabs() {
           activeTintColor: '#FF8137',
           inactiveTintColor: 'gray',
           labelStyle: {
-            paddingBottom: 10,
+            paddingBottom: 12,
             fontSize: 10,
             // height: 50,
           },
@@ -40,9 +41,16 @@ export default function BottomTabs() {
           options={{
             headerShown: false,
             tabBarLabel: 'Home',
-            // tabBarIcon: ({color, size, focused}) => (
-            //   <Ionicons name="home" size={30} color={color} />
-            // ),
+            tabBarIcon: ({color, size, focused}) => (
+              <Image
+                source={icons.homeIcon}
+                style={{
+                  width: 25,
+                  height: 25,
+                  color: focused ? '#FF8137' : 'gray',
+                }}
+              />
+            ),
           }}
         />
         <Tab.Screen
@@ -51,9 +59,9 @@ export default function BottomTabs() {
           options={{
             headerShown: false,
             tabBarLabel: 'Saved',
-            // tabBarIcon: ({color, size, focused}) => (
-            //   <Ionicons name="ios-layers-outline" size={30} color={color} />
-            // ),
+            tabBarIcon: ({color, size, focused}) => (
+              <Image source={icons.savedIcon} style={{width: 25, height: 25}} />
+            ),
           }}
         />
         <Tab.Screen
@@ -62,13 +70,12 @@ export default function BottomTabs() {
           options={{
             headerShown: false,
             tabBarLabel: 'Account',
-            // tabBarIcon: ({color, size}) => (
-            //   <Ionicons
-            //     name="ios-document-attach-outline"
-            //     size={30}
-            //     color={color}
-            //   />
-            // ),
+            tabBarIcon: ({color, size}) => (
+              <Image
+                source={icons.accountIcon}
+                style={{width: 25, height: 25}}
+              />
+            ),
           }}
         />
         <Tab.Screen
@@ -77,13 +84,9 @@ export default function BottomTabs() {
           options={{
             headerShown: false,
             tabBarLabel: 'Cart',
-            // tabBarIcon: ({color, size}) => (
-            //   <Ionicons
-            //     name="ios-chatbox-ellipses-outline"
-            //     size={30}
-            //     color={color}
-            //   />
-            // ),
+            tabBarIcon: ({color, size}) => (
+              <Image source={icons.cartIcon} style={{width: 25, height: 25}} />
+            ),
           }}
         />
       </Tab.Navigator>

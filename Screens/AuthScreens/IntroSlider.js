@@ -11,7 +11,8 @@ import {
 } from 'react-native';
 
 import AppIntroSlider from 'react-native-app-intro-slider';
-import Introduction from '../../navigation/LoginScreens/Introduction';
+import {SIZES, COLORS, FONTS, icons, images} from '../../Constants';
+// import Introduction from './Introduction';
 
 const App = ({navigation}) => {
   const [showRealApp, setShowRealApp] = useState(false);
@@ -24,32 +25,46 @@ const App = ({navigation}) => {
 
   const RenderItem = ({item}) => {
     return (
-      <View
-        style={{
-          flex: 1,
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
-        <Image
+      <ImageBackground
+        source={icons.bg2}
+        resizeMode="cover"
+        style={{flex: 1, justifyContent: 'center'}}>
+        <View
           style={{
-            width: 120,
-            height: 120,
-          }}
-          source={require('../../navigation/assets/rubieslogo.png')}
-        />
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <Image
+            style={{
+              width: SIZES.base * 18,
+              height: SIZES.base * 18,
+            }}
+            source={item.image}
+          />
+          <Text style={styles.text}>{item.text}</Text>
+          <Text style={styles.text}>{item.text1}</Text>
+          <Text style={styles.text}>{item.text2}</Text>
+          <TouchableOpacity
+            style={{backgroundColor: '#55287F'}}
+            onPress={onDone}>
+            {/* <Image style={styles.next} source={{}} /> */}
+          </TouchableOpacity>
+        </View>
         <Text
           style={{
-            color: '#55287F',
-            fontSize: 25,
+            color: COLORS.primary,
+            fontSize: SIZES.base * 4,
             fontWeight: 'bold',
-            marginTop: 20,
+            marginBottom: SIZES.base * 8,
+            // justifyContent: 'center',
+            alignSelf: 'center',
+            ...FONTS.body2,
+            letterSpacing: 2,
           }}>
-          RUBIES TECHNOLOGY
+          Basket Online Marketplace
         </Text>
-        <TouchableOpacity style={{backgroundColor: '#55287F'}} onPress={onDone}>
-          {/* <Image style={styles.next} source={{}} /> */}
-        </TouchableOpacity>
-      </View>
+      </ImageBackground>
     );
   };
 
@@ -59,6 +74,7 @@ const App = ({navigation}) => {
         <Introduction navigation={navigation} />
       ) : (
         <AppIntroSlider
+          scrollIndicatorInsets={false}
           data={slides}
           renderItem={RenderItem}
           onDone={onDone}
@@ -75,16 +91,18 @@ export default App;
 const slides = [
   {
     key: 's1',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam',
-    title: 'Welocme to Rubies',
-    // image: images.Intro1,
+    text: 'Start Shopping.',
+    text1: 'Stay Happy',
+    text2: 'Anytime.',
+    image: icons.logo,
     // img: icons.next,
   },
   // {
   //   key: 's2',
-  //   title: 'Make payment online',
-  //   text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam adipiscing elit ut aliquam',
-  //   // image: images.Intro2,
+  //   text: 'Make payment online',
+  //   text1: 'Stay Happy.',
+  //   text2: 'Anytime.',
+  //   image: icons.Logo1,
   //   // img: icons.next,
   // },
   // {
@@ -94,4 +112,12 @@ const slides = [
   // },
 ];
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  text: {
+    color: '#FFF',
+    fontSize: SIZES.base * 4,
+    fontWeight: 'bold',
+    marginTop: 20,
+    ...FONTS.body1,
+  },
+});

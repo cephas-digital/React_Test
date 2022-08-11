@@ -12,10 +12,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 // Screens
-import Login from '../LoginScreens/Login';
-// import SignUp from './././SignUp';
-// import IntroSlider from '../LoginScreens/IntroSlider';
-// import Introduction from '../LoginScreens/Introduction';
+// import Login from './Screens/AuthScreens/Login';
 
 const {width, height} = Dimensions.get('window');
 
@@ -29,16 +26,16 @@ function LoginStack() {
         height,
       }}>
       <Stack.Navigator
-        // initialRouteName="IntroSlider"
-        initialRouteName="Login"
+        initialRouteName="IntroSlider"
+        // initialRouteName="Login"
         options={{
           headerShown: false,
         }}>
-        {/* <Stack.Screen
+        <Stack.Screen
           name="Introduction"
           component={Introduction}
           options={{headerShown: false}}
-        /> */}
+        />
         {/* <Stack.Screen
           name="HomeScreen"
           component={MainContainer}
@@ -55,11 +52,11 @@ function LoginStack() {
           options={{headerShown: true, headerTitle: 'Create Account'}}
         /> */}
 
-        {/* <Stack.Screen
+        <Stack.Screen
           name="IntroSlider"
           component={IntroSlider}
           options={{headerShown: false}}
-        /> */}
+        />
       </Stack.Navigator>
     </View>
   );

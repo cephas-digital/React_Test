@@ -24,27 +24,27 @@ export default function AccountHome() {
     {
       id: '3',
       name: 'Order history',
-      icon: 'wishlist',
+      icon: 'orderhistory',
     },
     {
       id: '4',
       name: 'Track Order',
-      icon: 'wishlist',
+      icon: 'Tracking',
     },
     {
       id: '5',
       name: 'Payment options',
-      icon: 'wishlist',
+      icon: 'paymentOpt',
     },
     {
       id: '6',
       name: 'Settings',
-      icon: 'wishlist',
+      icon: 'settings',
     },
     {
       id: '7',
       name: 'Logout',
-      icon: 'wishlist',
+      icon: 'logout',
     },
   ]);
 
@@ -62,18 +62,8 @@ export default function AccountHome() {
             justifyContent: 'space-around',
             marginTop: SIZES.base * 2,
           }}>
-          <TouchableOpacity
-            style={{
-              backgroundColor: '#FF8137',
-              width: 40,
-              height: 40,
-              borderRadius: SIZES.base * 5,
-              justifyContent: 'center',
-            }}>
-            <Text
-              style={{color: 'white', fontSize: 20, marginLeft: SIZES.base}}>
-              Ba
-            </Text>
+          <TouchableOpacity style={{}}>
+            <Image source={icons.Logo1} style={{width: 45, height: 45}} />
           </TouchableOpacity>
           <TextInput
             placeholder="      search in Basket"
@@ -86,17 +76,8 @@ export default function AccountHome() {
               color: 'black',
             }}
           />
-          <TouchableOpacity
-            style={{
-              backgroundColor: '#FF8137',
-              width: 40,
-              height: 40,
-              borderRadius: SIZES.base * 5,
-              justifyContent: 'center',
-            }}>
-            <Text style={{color: 'white', fontSize: 20, marginLeft: 8}}>
-              Me
-            </Text>
+          <TouchableOpacity style={{}}>
+            <Image source={icons.menu} style={{width: 25, height: 25}} />
           </TouchableOpacity>
         </View>
       </View>
@@ -151,11 +132,11 @@ export default function AccountHome() {
             data={Account}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({item}) => (
-              <View style={{marginTop: SIZES.base * 2}}>
+              <View style={{marginTop: SIZES.base * 3}}>
                 <TouchableOpacity
                   style={{
                     flexDirection: 'row',
-                    // justifyContent: 'space-around',
+                    // justifyContent: 'space-between',
                   }}>
                   <Image
                     source={icons[item.icon]}
@@ -164,9 +145,10 @@ export default function AccountHome() {
 
                   <Text
                     style={{
-                      ...FONTS.h4,
+                      ...FONTS.body3,
                       color: 'black',
                       fontWeight: '700',
+                      marginHorizontal: SIZES.radius * 4,
                     }}>
                     {item.name}
                   </Text>
