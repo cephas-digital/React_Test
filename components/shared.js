@@ -8,37 +8,34 @@ import {
   Image,
   Alert,
   Platform,
+  Dimensions
 } from "react-native";
 import { ActivityIndicator } from "react-native-paper";
 import { store } from "../redux/store";
 import { signIn, signOut } from "../redux/ActionCreators";
 
-export const base_url = "https://www.screenclass.com";
+export const base_url = "https://niishcloud.com/task-api";
 
-export const api_url = base_url + "/api/";
+export const api_url = base_url + "/api/task/v1/";
 
 // export const videoUrl = "https://34.69.20.189/admin/clip/";
 
 export const apiUrl = {
-  delete_user_account:api_url + "index.php?action=49", // delete user account.  
+  user_login:api_url + "login", // SignInUrl.  
 
 };
 
-function Capitalize(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
 
 export const api = async (method, url, body) => {
   try {
-    let sess = await AsyncStorage.getItem("session");
-    // let formData = new FormData(); // Currently empty
-    // console.log(formData)
-    const user = store.getState().user.user[0];
+    
+   
+    // const user = store.getState().user.user[0];
 
     if (body) {
-      if (body.session || body.sc_session_id) {
-        body.sc_session_id = body.sc_session_id || sess;
-      }
+      // if (body.session || body.sc_session_id) {
+      //   body.sc_session_id = body.sc_session_id || sess;
+      // }
 
      
       // let formBody = [];
@@ -54,8 +51,8 @@ export const api = async (method, url, body) => {
           "Content-Type": "application/json",
         },
         method,
-        body: formBody,
-        redirect: "follow",
+        body: body,
+        // redirect: "follow",
       };
     }
     if (method === "GET" && body) {
@@ -76,57 +73,9 @@ export const api = async (method, url, body) => {
     };
 
     const res = await fetch(url, requestOptions);
-
+console.log("request option", requestOptions);
     const response = await contentDetect(res);
     // console.log(response)
-
-    if (typeof response === "object" && response !== null) {
-      let val =
-        response.sc_resp_code === "SC2" || response.sc_resp_code === "SC9";
-      if (val) {
-        throw new Error(response.sc_resp_desc);
-      }
-
-      if (response[0]) {
-        if (
-          response[0].sc_resp_code === "SC10" &&
-          response[0].sc_resp_desc === "SESSION EXPIRED"
-        ) {
-          //cancel all pending requests
-
-          store.dispatch(
-            signOut({
-              success: true,
-            })
-          );
-          if (Platform.OS == "android") {
-          ToastAndroid.showWithGravityAndOffset(
-            response[0].sc_resp_desc,
-            ToastAndroid.LONG,
-            ToastAndroid.BOTTOM,
-            25,
-            50
-            
-          );
-          }
-          else{
-            Alert.alert(" Error ", response[0].sc_resp_desc)
-          }  
-
-          // createApi({
-          //   baseQuery: (a, api) => {
-          //     api.dispatch(signOut({
-          //       success: true
-          //     }))
-          //   }
-          // })
-        }
-        if (response[0].sc_resp_code === "SC10") {
-          throw new Error(response[0].sc_resp_desc);
-        }
-      }
-    }
-
     return response;
   } catch (error) {
     const iEm = [
@@ -160,7 +109,10 @@ export const api = async (method, url, body) => {
   }
 };
 
-
+const gstyles={
+  screenWidth :Dimensions.get('window').width,
+  screenHeight : Dimensions.get('window').height,
+}
 export const Loader = () => {
   return (
     <View>
@@ -178,55 +130,7 @@ export const Loader = () => {
   );
 };
 
-export const Affect = ({ load, cref, effect }) => {
-  // console.log(cref)
 
-
-    if (load) {
-      return (
-        <View
-          style={{
-            position: "absolute",
-            flex: 1,
-            alignSelf: "center",
-            justifyContent: "center",
-            alignContent: "center",
-            elevation: 3,
-          }}
-        >
-          <Loader />
-        </View>
-      );
-    }
-    if (cref) {
-      if (effect) {
-        effect.message = Capitalize(effect.message ? effect.message : "");
-        if (effect.error === "") effect.error = null;
-
-        if (!effect.error) {
-          cref.setNativeProps({
-            text: effect.message,
-            style: {
-              color: "green",
-              fontFamily: "montaga1",
-              alignSelf: "center",
-            },
-          });
-        } else {
-          cref.setNativeProps({
-            text: effect.message,
-            style: { color: "red" },
-          });
-        }
-      } else {
-        cref.setNativeProps({ text: null });
-      }
-    } else {
-      // console.log("No ref")
-    }
-    return null;
-  
-};
 
 export const Prompt = (ask) => {
   const prompts = new Promise((res) => {
@@ -254,21 +158,3 @@ export const Prompt = (ask) => {
   return prompts;
 };
 
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: "center",
-  },
-  horizontal: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    padding: 10,
-    marginBottom: 1000,
-  },
-  absolute: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
-  },
-});

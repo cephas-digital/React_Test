@@ -1,7 +1,10 @@
-import {View, Text, TouchableOpacity, Dimensions} from 'react-native';
+import {View, Text, TouchableOpacity, Dimensions, Image} from 'react-native';
 import React from 'react';
+import { Loader } from './shared'
 
 import { COLORS, FONTS, icons, SIZES } from '../Constants';
+import { useState } from 'react';
+import { facebook } from '../Constants/icons';
 
 
 
@@ -9,12 +12,17 @@ const screenWidth = Math.round(Dimensions.get('window').width);
 const screenHeight = Math.round(Dimensions.get('window').height);
 
 export default function FormButton({
+  apiLoader,
   labelText = '',
   handleOnPress = null,
   style,
   isPrimary = true,
+  ImageName,
+  socialIcon,
   ...more
 }) {
+const [socail, setSocial] = useState(socialIcon)
+
   return (
     <TouchableOpacity
       style={{
@@ -27,15 +35,23 @@ export default function FormButton({
       }}
       onPress={handleOnPress}
       {...more}>
+      <View style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+      {
+        socialIcon &&
+        <Image source={ImageName} style={{height: 25, width: 25,}}/>}
       <Text
         style={{
           textAlign: 'center',
           alignSelf: 'center',
-          fontSize: screenWidth * 0.05,
+          ...FONTS.h3,
+          paddingLeft: SIZES.base,
+          // fontSize: screenWidth * 0.05,
           color: isPrimary ? COLORS.white : COLORS.secondary
         }}>
-        {labelText}
+          {apiLoader?<Loader/>:labelText}
+        
       </Text>
+      </View>
     </TouchableOpacity>
   );
 }

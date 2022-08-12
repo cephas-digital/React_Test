@@ -40,7 +40,8 @@ export const SIZES = {
 
 export const FONTS = {
   navTitle: {fontFamily: 'rasa', fontSize: SIZES.navTitle},
-  largeTitleBold: {fontFamily: 'rasa', fontSize: SIZES.h2},
+  largeTitleBold: {fontFamily: 'rasa', fontSize: SIZES.h1*1.5, 
+  lineHeight: screenHeight * 0.05,},
   h1: {
     fontFamily: 'rasa',
     fontSize: SIZES.h1,

@@ -30,7 +30,7 @@ export default function Introduction({navigation}) {
         <Text
           style={{
             color: COLORS.white,
-            fontSize: SIZES.base * 3,
+            ...FONTS.h2,
             bottom: SIZES.base * 7,
           }}>
           Welcome to
@@ -38,7 +38,8 @@ export default function Introduction({navigation}) {
         <Text
           style={{
             color: COLORS.white,
-            fontSize: SIZES.base * 5,
+            // fontSize: SIZES.base * 5,
+            ...FONTS.largeTitleBold,
             bottom: SIZES.base * 4,
           }}>
           basket online store
@@ -46,7 +47,8 @@ export default function Introduction({navigation}) {
         <Text
           style={{
             color: COLORS.white,
-            fontSize: SIZES.base * 2,
+            // fontSize: SIZES.base * 2,
+            ...FONTS.h3,
             bottom: SIZES.base * 3,
             letterSpacing: SIZES.base * 0.12,
             lineHeight: SIZES.base * 3,
@@ -73,9 +75,9 @@ export default function Introduction({navigation}) {
           onPress={() => {
             navigation.navigate('Login');
           }}>
-          <View style={{flexDirection: 'row'}}>
+          <View style={{flexDirection: 'row', alignItems:'center'}}>
             <Text
-              style={{color: COLORS.white, ...FONTS.body3, fontWeight: 'bold'}}>
+              style={{color: COLORS.white, ...FONTS.body2}}>
               GET STARTED
             </Text>
             <Image

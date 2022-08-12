@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Rasa-Italic-VariableFont_wght.ttf",
+      "sha1": "8154bc426b30c6957602c9ab3c86c99beb4c716b"
+    },
+    {
+      "path": "assets/fonts/rasa.ttf",
+      "sha1": "096846eb0e394e3b3c26884a98895be0cf492f71"
+    }
+  ]
+}

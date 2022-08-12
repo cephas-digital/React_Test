@@ -26,7 +26,7 @@ export default function BottomTabs() {
           activeTintColor: '#FF8137',
           inactiveTintColor: 'gray',
           labelStyle: {
-            paddingBottom: 12,
+            // paddingBottom: 5,
             fontSize: 10,
             // height: 50,
           },
@@ -37,7 +37,7 @@ export default function BottomTabs() {
         }}
         screenOptions={({route}) => ({})}>
         <Tab.Screen
-          name="Home"
+          name="HomeScreen"
           component={HomeStack}
           options={{
             headerShown: false,

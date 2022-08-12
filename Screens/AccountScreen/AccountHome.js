@@ -71,9 +71,10 @@ export default function AccountHome() {
             style={{
               backgroundColor: '#FFf',
               width: '60%',
-              height: SIZES.base * 4.1,
+              height: SIZES.base * 5,
               borderRadius: SIZES.base * 1.5,
               color: 'black',
+              justifyContent: 'center'
             }}
           />
           <TouchableOpacity style={{}}>
@@ -103,14 +104,12 @@ export default function AccountHome() {
             <Text
               style={{
                 color: 'black',
-                fontSize: 25,
-                fontWeight: '500',
                 ...FONTS.body1,
               }}>
               Daniel Obi
             </Text>
             <Text
-              style={{color: 'black', fontSize: SIZES.h3, fontWeight: '500'}}>
+              style={{color: 'black', ...FONTS.h3}}>
               danielobi@gmail.com
             </Text>
           </View>
@@ -145,9 +144,9 @@ export default function AccountHome() {
 
                   <Text
                     style={{
-                      ...FONTS.body3,
+                      ...FONTS.h3,
                       color: 'black',
-                      fontWeight: '700',
+                      
                       marginHorizontal: SIZES.radius * 4,
                     }}>
                     {item.name}

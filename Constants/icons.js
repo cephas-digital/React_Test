@@ -20,10 +20,20 @@ export const basketLogo = require('./../assets/icons/basketLogo.png');
 export const familyLogo = require('./../assets/icons/familyLogo.png');
 export const bg3 = require('./../assets/icons/bg3.png');
 export const arrowright = require('./../assets/icons/arrowright.png');
+export const email = require('./../assets/icons/email.png');
+export const eyeoff = require('./../assets/icons/eye-off.png');
+export const facebook = require('./../assets/icons/facebook.png');
+export const google = require('./../assets/icons/google.png');
+export const lock = require('./../assets/icons/lock.png');
+export const rectangle = require('./../assets/icons/rectangle.png');
+export const eye = require('./../assets/icons/eye.png');
+
+
 
 export default {
   logo,
   profile,
+  eye,
   Bell,
   editprofile,
   wishlist,
@@ -44,4 +54,10 @@ export default {
   familyLogo,
   bg3,
   arrowright,
+  lock,
+  rectangle,
+  facebook,
+  google,
+  eyeoff,
+  email
 };

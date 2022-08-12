@@ -1,88 +1,64 @@
-import React from 'react';
+import React from "react";
+import { View } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import AppStack from "./AppStack";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useDispatch } from "react-redux";
+import { api, apiUrl, api_url, base_url, Loader } from "./Components/shared";
+import { signIn } from "./redux/ActionCreators";
 
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-  Dimensions,
-} from 'react-native';
+import GlobalProvider from "./Components/Auth/ContentAPI/GlobalProvider";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
+import { Provider as PaperProvider } from "react-native-paper";
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import BottomTabs from './Navigation/BottomTabs';
+export default function AppHome() {
+//   const [load, sLoad] = React.useState(true);
+//   const dispatch = useDispatch();
+  
+//   const tryLogin = async () => {
+//     try {
+//       let sData = true;
+//       const sess = await AsyncStorage.getItem("session");
 
-import IntroSlider from './Screens/AuthScreens/IntroSlider';
-import LoginStack from './Screens/AuthScreens/LoginStack';
+//       if (sess) {
+//         const res = await api("POST", apiUrl.User_Det_Url, {
+//           sc_session_id: sess,
+//         });
 
-const {width, height} = Dimensions.get('window');
+//         dispatch(
+//           signIn({
+//             success: sData,
+//             user: res,
+//             session: sess,
+//           })
+//         );
+//       }
 
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
-};
+//       sLoad(false);
+//     } catch (error) {
+//       console.warn(error.message);
+//       sLoad(false);
+//     }
+//   };
 
-const Stack = createStackNavigator();
+//   tryLogin();
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+//   if (load) {
+//     return (
+//       <View style={{ flex: 1, marginTop: 100 }}>
+//         <Loader />
+//       </View>
+//     );
+//   }
 
   return (
-    <View
-      style={{
-        width,
-        height,
-      }}>
-      <NavigationContainer>
-         {/* <Stack.Navigator initialRouteName="LoginStack"> */}
-
-          <Stack.Navigator initialRouteName="LoginStack">
-          <Stack.Screen
-            name="Home"
-            component={BottomTabs}
-            options={{
-              title: null,
-              headerShown: false,
-              headerStyle: {},
-            }}
-          />
-          <Stack.Screen
-            name="LoginStack"
-            component={LoginStack}
-            options={{
-              title: null,
-              headerShown: false,
-              headerStyle: {},
-            }}
-          />
-
-        </Stack.Navigator> 
-
-        {/* <LoginStack /> */}
-
-        {/* <IntroSlider /> */}
-
-        {/* </Stack.Navigator>   */}
-
-        {/* <BottomTabs /> */}
-      </NavigationContainer>
-    </View>
+    <GlobalProvider>
+    <Provider store={store}>
+      <PaperProvider>
+        <AppStack />
+      </PaperProvider>
+    </Provider>
+  </GlobalProvider>
   );
-};
-
-const styles = StyleSheet.create({});
-
-export default App;
+}

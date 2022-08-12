@@ -22,17 +22,6 @@ export const user = createReducer(
         loggedIn: action.payload,
       };
     },
-    [updUser]: (s, a) => {
-      if (a.payload) {
-        // console.log(s.user, "action")
-
-        return {
-          ...s,
-          user: [{ ...(s.user[0] || {}), ...a.payload }],
-        };
-      }
-
-      return s;
-    },
+  
   }
 );

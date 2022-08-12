@@ -54,13 +54,14 @@ const App = ({navigation}) => {
         <Text
           style={{
             color: COLORS.primary,
-            fontSize: SIZES.base * 4,
-            fontWeight: 'bold',
+            ...FONTS.h1,
+            // fontSize: SIZES.base * 4,
+            // fontWeight: 'bold',
             marginBottom: SIZES.base * 8,
             // justifyContent: 'center',
             alignSelf: 'center',
-            ...FONTS.body2,
-            letterSpacing: 2,
+            
+            // letterSpacing: 2,
           }}>
           Basket Online Marketplace
         </Text>
@@ -71,13 +72,17 @@ const App = ({navigation}) => {
             justifyContent: 'space-between',
             marginHorizontal: SIZES.base * 4,
           }}>
-          <TouchableOpacity>
-            <Text style={{color: COLORS.primary, fontSize: SIZES.base * 2.5}}>
+          <TouchableOpacity
+          onPress={()=>navigation.navigate("")}
+          >
+            <Text style={{color: COLORS.primary, ...FONTS.h2}}>
               Skip
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity>
-            <Text style={{color: COLORS.primary, fontSize: SIZES.base * 2.5}}>
+          <TouchableOpacity
+          onPress={()=>navigation.navigate("Introduction")}
+          >
+            <Text style={{color: COLORS.primary, ...FONTS.h2}}>
               Next
             </Text>
           </TouchableOpacity>
@@ -98,6 +103,7 @@ const App = ({navigation}) => {
           onDone={onDone}
           showSkipButton={true}
           onSkip={onSkip}
+          showDoneButton={false}
         />
       )}
     </>
@@ -133,10 +139,8 @@ const slides = [
 const styles = StyleSheet.create({
   text: {
     color: '#FFF',
-    fontSize: SIZES.base * 4,
-    fontWeight: 'bold',
     marginTop: 20,
-    // ...FONTS.body1,
-    fontFamily: 'rasa',
+    ...FONTS.h1,
+    // fontFamily: 'rasa',
   },
 });

@@ -3,7 +3,7 @@ import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const signIn = createAction("user/add", (status) => {
   if (status.success) {
-    status.user[0].session = status.session;
+    // status.user[0].session = status.session;
     return { payload: { user: status.user, login: true } };
   }
   return { payload: { login: false } };
