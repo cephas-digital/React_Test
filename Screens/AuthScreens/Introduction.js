@@ -1,92 +1,94 @@
-// import {View, Text, Image} from 'react-native';
-// import React from 'react';
-// import {TouchableOpacity} from 'react-native-gesture-handler';
-
-// export default function Introduction({navigation}) {
-//   return (
-//     <View
-//       style={{
-//         marginHorizontal: 20,
-//         alignItems: 'center',
-//         alignSelf: 'center',
-//         justifyContent: 'center',
-//         marginTop: 80,
-//       }}>
-//       <Text style={{color: '#5700AB', fontSize: 25, fontWeight: 'bold'}}>
-//         Let's work together.
-//       </Text>
-//       <Text
-//         style={{
-//           color: '#5700AB',
-//           fontSize: 15,
-//           fontWeight: '400',
-//           marginTop: 10,
-//           letterSpacing: 0.5,
-//         }}>
-//         Achieving great success by using this {'\n'} platform and ease the
-//         stress.
-//       </Text>
-//       <Image
-//         style={{
-//           width: 300,
-//           height: 200,
-//           marginTop: 100,
-//         }}
-//         source={require('../../navigation/assets/introduction.png')}
-//       />
-//       <TouchableOpacity
-//         style={{
-//           backgroundColor: '#50227C',
-//           height: 50,
-//           width: 300,
-//           borderRadius: 10,
-//           marginTop: 50,
-//         }}
-//         onPress={() => navigation.navigate('SignUp')}>
-//         <Text
-//           style={{
-//             color: 'white',
-//             fontSize: 20,
-//             alignSelf: 'center',
-//             top: 10,
-//             fontWeight: 'bold',
-//           }}>
-//           Register
-//         </Text>
-//       </TouchableOpacity>
-//       <TouchableOpacity
-//         style={{
-//           borderColor: '#50227C',
-//           borderWidth: 1,
-//           height: 50,
-//           width: 300,
-//           borderRadius: 10,
-//           marginTop: 50,
-//         }}
-//         onPress={() => navigation.navigate('Login')}>
-//         <Text
-//           style={{
-//             color: '#50227C',
-//             fontSize: 20,
-//             alignSelf: 'center',
-//             top: 10,
-//             fontWeight: 'bold',
-//           }}>
-//           Login in
-//         </Text>
-//       </TouchableOpacity>
-//       {/* </View> */}
-//     </View>
-//   );
-// }
-
-import {View, Text} from 'react-native';
+import {
+  View,
+  Text,
+  ImageBackground,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import React from 'react';
+import {SIZES, COLORS, FONTS, icons, images} from '../../Constants';
 
-export default function Introduction() {
+export default function Introduction({navigation}) {
   return (
-    <View>
-      <Text style={{color: 'red'}}>Introduction</Text>
-    </View>
+    <ImageBackground
+      source={icons.bg3}
+      resizeMode="cover"
+      style={{flex: 1, justifyContent: 'center'}}>
+      <View
+        style={{
+          // flex: 1,
+          alignItems: 'center',
+        }}>
+        <Image
+          style={{
+            width: SIZES.base * 18,
+            height: SIZES.base * 6,
+            bottom: SIZES.base * 15,
+          }}
+          source={icons.basketLogo}
+        />
+        <Text
+          style={{
+            color: COLORS.white,
+            fontSize: SIZES.base * 3,
+            bottom: SIZES.base * 7,
+          }}>
+          Welcome to
+        </Text>
+        <Text
+          style={{
+            color: COLORS.white,
+            fontSize: SIZES.base * 5,
+            bottom: SIZES.base * 4,
+          }}>
+          basket online store
+        </Text>
+        <Text
+          style={{
+            color: COLORS.white,
+            fontSize: SIZES.base * 2,
+            bottom: SIZES.base * 3,
+            letterSpacing: SIZES.base * 0.12,
+            lineHeight: SIZES.base * 3,
+          }}>
+          basket is the no1 online store for {'\n'}   both new and used products.
+        </Text>
+        <Image
+          style={{
+            width: SIZES.base * 33,
+            height: SIZES.base * 33,
+          }}
+          source={icons.familyLogo}
+        />
+        <TouchableOpacity
+          style={{
+            backgroundColor: COLORS.primary,
+            width: SIZES.padding * 10,
+            height: SIZES.base * 5,
+            borderRadius: SIZES.base,
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginTop: SIZES.base * 5,
+          }}
+          onPress={() => {
+            navigation.navigate('Login');
+          }}>
+          <View style={{flexDirection: 'row'}}>
+            <Text
+              style={{color: COLORS.white, ...FONTS.body3, fontWeight: 'bold'}}>
+              GET STARTED
+            </Text>
+            <Image
+              style={{
+                width: SIZES.base * 4,
+                height: SIZES.base * 2,
+                left: SIZES.base * 5,
+              }}
+              source={icons.arrowright}
+            />
+          </View>
+        </TouchableOpacity>
+      </View>
+    </ImageBackground>
   );
 }

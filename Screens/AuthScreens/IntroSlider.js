@@ -12,7 +12,7 @@ import {
 
 import AppIntroSlider from 'react-native-app-intro-slider';
 import {SIZES, COLORS, FONTS, icons, images} from '../../Constants';
-// import Introduction from './Introduction';
+import Introduction from './Introduction';
 
 const App = ({navigation}) => {
   const [showRealApp, setShowRealApp] = useState(false);
@@ -64,6 +64,24 @@ const App = ({navigation}) => {
           }}>
           Basket Online Marketplace
         </Text>
+        <View
+          style={{
+            flexDirection: 'row',
+            marginBottom: SIZES.base * 4,
+            justifyContent: 'space-between',
+            marginHorizontal: SIZES.base * 4,
+          }}>
+          <TouchableOpacity>
+            <Text style={{color: COLORS.primary, fontSize: SIZES.base * 2.5}}>
+              Skip
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Text style={{color: COLORS.primary, fontSize: SIZES.base * 2.5}}>
+              Next
+            </Text>
+          </TouchableOpacity>
+        </View>
       </ImageBackground>
     );
   };

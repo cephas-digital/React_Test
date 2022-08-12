@@ -11,13 +11,10 @@ import {
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
-
-
 import AccountHome from '../AccountScreen/AccountHome';
+import BottomTabs from '../../Navigation/BottomTabs';
 
-// import SignUp from './././SignUp';
-// import IntroSlider from '../LoginScreens/IntroSlider';
-// import Introduction from '../LoginScreens/Introduction';
+import IntroSlider from './IntroSlider';
 import Introduction from './Introduction';
 import Login from './Login';
 
@@ -43,26 +40,17 @@ function LoginStack() {
           component={Introduction}
           options={{headerShown: false}}
         />
-        {/* <Stack.Screen
-          name="HomeScreen"
-          component={MainContainer}
-          options={{headerShown: false}}
-        /> */}
+
         <Stack.Screen
           name="Login"
           component={Login}
           options={{headerShown: false, headerTitle: 'Log in'}}
         />
         <Stack.Screen
-          name="AccountHome"
-          component={AccountHome}
+          name="BottomTabs"
+          component={BottomTabs}
           options={{headerShown: false, headerTitle: 'Log in'}}
         />
-        {/* <Stack.Screen
-          name="SignUp"
-          component={SignUp}
-          options={{headerShown: true, headerTitle: 'Create Account'}}
-        /> */}
 
         <Stack.Screen
           name="IntroSlider"
@@ -75,16 +63,3 @@ function LoginStack() {
 }
 
 export default LoginStack;
-
-// import {View, Text} from 'react-native';
-// import React from 'react';
-
-// export default function LoginStack() {
-//   return (
-//     <View>
-//       <Text style={{color: '#5700AB', fontSize: 25, fontWeight: 'bold'}}>
-//         LoginStack
-//       </Text>
-//     </View>
-//   );
-// }

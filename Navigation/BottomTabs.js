@@ -20,7 +20,8 @@ export default function BottomTabs() {
         height,
       }}>
       <Tab.Navigator
-        initialRouteName={HomeStack}
+        // initialRouteName={HomeStack}
+        initialRouteName="AccountHome"
         tabBarOptions={{
           activeTintColor: '#FF8137',
           inactiveTintColor: 'gray',
