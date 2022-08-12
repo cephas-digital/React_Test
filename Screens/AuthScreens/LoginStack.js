@@ -13,7 +13,6 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 
 
-import Login from '../AuthScreens/Login'
 import AccountHome from '../AccountScreen/AccountHome';
 
 // import SignUp from './././SignUp';
